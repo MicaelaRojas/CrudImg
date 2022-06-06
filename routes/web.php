@@ -21,12 +21,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::resource('/estudiantes', EstudianteController::class);
-    Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
-    Route::post('/upload', [FileUploadController::class, 'storeUploads']);
+
     Route::get('/dashboard', function(){
         return view('dashboard');
     })->name('dashboard');
 });
 
-Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
-Route::post('/upload', [FileUploadController::class, 'storeUploads']);

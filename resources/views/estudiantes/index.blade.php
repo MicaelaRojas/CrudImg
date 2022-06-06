@@ -3,12 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Estudiantes') }}
         </h2>
-        
-
-
-
-
-        
+       
     </x-slot>
 
     <div class="py-12">
@@ -44,7 +39,7 @@
                             <div class="flex justify-center rounded-lg text-lg" role="group">
                                 <!-- botón editar -->
                                 <a href="{{ route('estudiantes.edit', $estudiante->id) }}" class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4">Editar</a>
-
+<div  class="rounded bg-white-500 text-white font-bold py-2 px-4"> </div>
                                 <!-- botón borrar -->
                                 <form action="{{ route('estudiantes.destroy', $estudiante->id) }}" method="POST" class="formEliminar">
                                     @csrf

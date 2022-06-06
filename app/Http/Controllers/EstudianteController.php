@@ -17,7 +17,7 @@ class EstudianteController extends Controller
         $estudiantes = Estudiante::paginate(5);
         return view('estudiantes.index', compact('estudiantes'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -43,14 +43,18 @@ class EstudianteController extends Controller
          $estudiante = $request->all();
 
          if($imagen = $request->file('imagen')) {
+            $response = cloudinary()->upload($request->file('imagen')->getRealPath())->getSecurePath();
              $rutaGuardarImg = 'imagen/';
              $imagenEstudiante = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
-             $imagen->move($rutaGuardarImg, $imagenEstudiante);
+             $imagen->move($rutaGuardarImg, $imagenEstudiante,$response);
+           
              $estudiante['imagen'] = "$imagenEstudiante";             
          }
-         
+        
          Estudiante::create($estudiante);
-         return redirect()->route('estudiantes.index');
+        
+         return redirect()
+         ->route('estudiantes.index');
     }
 
     /**

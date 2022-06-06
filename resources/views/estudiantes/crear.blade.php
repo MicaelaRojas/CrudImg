@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             
-            <form action="{{ route('estudiantes.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('estudiantes.store') }}" method="POST" enctype="multipart/form-data" >
             @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                     <div class="grid grid-cols-1">
@@ -68,7 +68,6 @@
     </div>
 </x-app-layout>
 
-<!-- Script para ver la imagen antes de CREAR UN NUEVO PRODUCTO -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
 <script>   
     $(document).ready(function (e) {   
@@ -80,4 +79,5 @@
             reader.readAsDataURL(this.files[0]); 
         });
     });
+
 </script>
