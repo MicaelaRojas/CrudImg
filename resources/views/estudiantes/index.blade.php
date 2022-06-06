@@ -11,6 +11,8 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
             <a type="button" href="{{ route('estudiantes.create') }}" class="bg-indigo-500 px-12 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out">Agregar Registro</a>
+            
+            <br><a type="button"  class="bg-white  "></a>
   
             <table class=" w-full">
                 <thead>
