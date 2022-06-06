@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Producto;
+use App\Models\Estudiante;
 
-class ProductoController extends Controller
+class EstudianteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::paginate(5);
-        return view('productos.index', compact('productos'));
+        $estudiantes = Estudiante::paginate(5);
+        return view('estudiantes.index', compact('estudiantes'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('productos.crear');
+        return view('estudiantes.crear');
     }
 
     /**
@@ -40,17 +40,17 @@ class ProductoController extends Controller
             'nombre' => 'required','apellido' => 'required', 'correo' => 'required','nacimiento' => 'required', 'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024'
         ]);
 
-         $producto = $request->all();
+         $estudiante = $request->all();
 
          if($imagen = $request->file('imagen')) {
              $rutaGuardarImg = 'imagen/';
-             $imagenProducto = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
-             $imagen->move($rutaGuardarImg, $imagenProducto);
-             $producto['imagen'] = "$imagenProducto";             
+             $imagenEstudiante = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+             $imagen->move($rutaGuardarImg, $imagenEstudiante);
+             $estudiante['imagen'] = "$imagenEstudiante";             
          }
          
-         Producto::create($producto);
-         return redirect()->route('productos.index');
+         Estudiante::create($estudiante);
+         return redirect()->route('estudiantes.index');
     }
 
     /**
@@ -70,9 +70,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit(Estudiante $estudiante)
     {
-        return view('productos.editar', compact('producto'));
+        return view('estudiantes.editar', compact('estudiante'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Estudiante $estudiante)
     {
         $request->validate([
             'nombre' => 'required','apellido' => 'required', 'correo' => 'required','nacimiento' => 'required'
@@ -90,14 +90,14 @@ class ProductoController extends Controller
          $prod = $request->all();
          if($imagen = $request->file('imagen')){
             $rutaGuardarImg = 'imagen/';
-            $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
-            $imagen->move($rutaGuardarImg, $imagenProducto);
-            $prod['imagen'] = "$imagenProducto";
+            $imagenEstudiante = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
+            $imagen->move($rutaGuardarImg, $imagenEstudiante);
+            $prod['imagen'] = "$imagenEstudiante";
          }else{
             unset($prod['imagen']);
          }
-         $producto->update($prod);
-         return redirect()->route('productos.index');
+         $estudiante->update($prod);
+         return redirect()->route('estudiantes.index');
     }
 
     /**
@@ -106,9 +106,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy(Estudiante $estudiante)
     {
-        $producto->delete();
-        return redirect()->route('productos.index');
+        $estudiante->delete();
+        return redirect()->route('estudiantes.index');
     }
 }

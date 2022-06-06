@@ -1,40 +1,40 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Productos') }}
+            {{ __('Editar estudiantes') }}
         </h2>
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
            
-            <form action="{{ route('productos.update',$producto->id) }}" method="POST" enctype="multipart/form-data"> 
+            <form action="{{ route('estudiantes.update',$estudiante->id) }}" method="POST" enctype="multipart/form-data"> 
             @csrf
             @method('PUT')
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                 <div class="grid grid-cols-1">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Nombre:</label>
-                    <input name="nombre" value="{{ $producto->nombre }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" required/>
+                    <input name="nombre" value="{{ $estudiante->nombre }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" required/>
                 </div>
                 <div class="grid grid-cols-1">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Apellido:</label>
-                    <input name="apellido" value="{{ $producto->apellido }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" required/>
+                    <input name="apellido" value="{{ $estudiante->apellido }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" required/>
                 </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
                
                 <div class="grid grid-cols-1">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Correo:</label>
-                    <input name="correo" value="{{ $producto->correo }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" required/>
+                    <input name="correo" value="{{ $estudiante->correo }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" required/>
                 </div>
                 <div class="grid grid-cols-1">
                     <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Fecha de Nacimeinto:</label>
-                    <input name="nacimiento" value="{{ $producto->nacimiento }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" required/>
+                    <input name="nacimiento" value="{{ $estudiante->nacimiento }}" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="date" required/>
                 </div>
                 </div>
 
                 <div class="grid grid-cols-1 mt-5 mx-7">
-                    <img src="/imagen/{{ $producto->imagen }}" width="200px" id="imagenSeleccionada">
+                    <img src="/imagen/{{ $estudiante->imagen }}" width="200px" id="imagenSeleccionada">
                 </div>                                    
                 
                 <div class="grid grid-cols-1 mt-5 mx-7">
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-                <a href="{{ route('productos.index') }}" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</a>
+                <a href="{{ route('estudiantes.index') }}" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancelar</a>
                 <button type="submit" class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Guardar</button>
                 </div>
             </form>

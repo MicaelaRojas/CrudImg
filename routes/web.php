@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\FileUploadController;
 
 /*
@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-    Route::resource('/productos', ProductoController::class);
+    Route::resource('/estudiantes', EstudianteController::class);
     Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
     Route::post('/upload', [FileUploadController::class, 'storeUploads']);
     Route::get('/dashboard', function(){
